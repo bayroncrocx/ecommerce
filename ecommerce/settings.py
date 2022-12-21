@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#adpe)a46-)*1nix)^2#i3@fkyl56e2+*fkj9p3v!6c0th6!y3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ecommerce-env.eba-ew6zkpst.us-west-2.elasticbeanstalk.com/']
 
 
 # Application definition
@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'carts',
+    'orders',
+    'administrador',
+    'fusioncharts', 
 ]
 
 MIDDLEWARE = [
@@ -67,6 +70,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'category.context_processors.menu_links',
+                'carts.context_processors.counter',
+               
             ],
         },
     },
@@ -130,6 +135,18 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR /'media' 
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR : 'danger',
+
+}
+
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT= 587
+EMAIL_HOST_USER = 'bayronelias8@gmail.com'
+EMAIL_HOST_PASSWORD = 'vysfsrsjzidyhjvt'
+EMAIL_USE_TLS = True
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -43,7 +43,7 @@ class Account(AbstractBaseUser):
     email = models.CharField(max_length=100, unique=True)
     phone_number = models.CharField(max_length=50)
     password = models.CharField(max_length=15)
-
+    
     #campos atibutos de django
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now_add=True)
